@@ -75,7 +75,7 @@ def play_pidor_callback(data, vk):
 def pidor_stats_callback(data, vk):
     peer_id = data['object']['message']['peer_id']
     message_id = data['object']['message']['id']
-    stats = sorted(get_pidor_stats(peer_id), key=lambda x: x[-1])
+    stats = sorted(get_pidor_stats(peer_id), key=lambda x: x[-1], reverse=True)
     pidors_text = "\n".join(f"{n}. {first_name} ({screen_name}) - {count}"
                             for n, (first_name, screen_name, count) in enumerate(stats, 1))
     text = f"Топ пидоров:\n{pidors_text}"
