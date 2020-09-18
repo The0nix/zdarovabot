@@ -4,7 +4,7 @@ from flask import current_app, g
 from flask.cli import with_appcontext
 
 def get_db():
-    if 'db' not in g:
+    if "db" not in g:
         g.db = sqlite3.connect(
             "db.db",
             detect_types=sqlite3.PARSE_DECLTYPES
@@ -15,7 +15,7 @@ def get_db():
 
 
 def close_db(e=None):
-    db = g.pop('db', None)
+    db = g.pop("db", None)
 
     if db is not None:
         db.close()
